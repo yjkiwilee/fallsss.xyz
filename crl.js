@@ -1,4 +1,4 @@
-let timeOffset = 0 * 60; // offset is -x * 60 for GMT+x.
+let timeOffset = 1 * 60; // offset is -x * 60 for GMT+x.
 
 var crawledDat;
 var isTimeReady = false;
