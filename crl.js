@@ -4,8 +4,7 @@ var crawledDat;
 var isTimeReady = false;
 
 async function getTimes(localTime, alt) {
-    let regionalTime = localTimeToRegionalTime(localTime, timeOffset); 
-    console.log(regionalTime);
+    let regionalTime = localTimeToRegionalTime(localTime, timeOffset);
 
     var httpReq = new XMLHttpRequest();
     httpReq.open("GET", (regionalTime.getMonth() + 1).toString() + ".html", false);
