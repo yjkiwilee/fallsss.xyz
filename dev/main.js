@@ -22,9 +22,7 @@ window.onload = function() {
     fallsss.once('load', function(){
         veil.loadingDone = true;
 
-        veil.children[0].innerHTML = "click or tap";
-        
-        fallsss.play();
+        veil.children[0].innerHTML = "click or tap<br>(sound on)";
     });
 
     update();
@@ -45,6 +43,7 @@ function onClick() {
         veil.style.display = "none";
         fallsssImg.style.visibility = "visible";
         infoOpen.style.visibility = "visible";
+        fallsss.play();
     }
 }
 
