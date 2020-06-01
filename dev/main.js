@@ -18,9 +18,9 @@ window.onload = function() {
     });
     
     fallsss.once('load', function(){
-        veil.style.display = "none";
-        fallsssImg.style.visibility = "visible";
-        infoOpen.style.visibility = "visible";
+        veil.loadingDone = true;
+
+        veil.children[0].innerHTML = "click or tap";
         
         fallsss.play();
     });
@@ -36,6 +36,14 @@ function openModal() {
 function closeModal() {
     infoPanel.style.display = "none";
     infoOpen.style.visibility = "visible";
+}
+
+function onClick() {
+    if(veil.loadingDone) {
+        veil.style.display = "none";
+        fallsssImg.style.visibility = "visible";
+        infoOpen.style.visibility = "visible";
+    }
 }
 
 async function update() {
