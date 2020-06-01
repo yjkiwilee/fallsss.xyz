@@ -21,28 +21,6 @@
                 color: white;
             }
 
-            #cvs {
-                width: 100%;
-                height: 100%;
-            }
-
-            /*#circle {
-                position: absolute;
-                height: max(10vh, 10vw);
-                width: max(10vh, 10vw);
-
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-
-                border-radius: 50%;
-                border-color: #000;
-                border-width: 7px;
-                border-style: solid;
-
-                display: none;
-            }*/
-
             #veil {
                 position: absolute;
                 top: 0px;
@@ -50,10 +28,10 @@
                 height: 100%;
                 width: 100%;
 
-                background-color: black;
+                background-color: transparent;
                 z-index: 20;
 
-                color: white;
+                color: transparent;
                 text-align: center;
                 
                 display: table;
@@ -108,6 +86,8 @@
                 position: absolute;
                 right: 20px;
                 bottom: 20px;
+
+                visibility: hidden;
             }
 
             #fallsssimg {
@@ -116,6 +96,8 @@
                 left: 50%;
                 top: 50%;
                 transform: translate(-50%, -50%);
+
+                visibility: hidden;
             }
         </style>
     </head>
@@ -150,8 +132,9 @@
                 Made possible by the collaboration with and technical support of developer <a href="https://www.instagram.com/iamkiwy/">Youngjun Lee</a>
                 and artist/noisemaker <a href="https://www.termineg.com">Giuseppe Termine</a><br>
                 <br>
-                The time of sunrise, sunset, etc. is imported from <a href="https://www.timeanddate.com">timeanddate.com</a>,
-                and javascript libraries <a href="http://www.hsluv.org">HSLuv</a>,
+                The local position of the Sun is calculated using the mathematical methods described 
+                <a href="https://en.wikipedia.org/wiki/Position_of_the_Sun">here</a> and <a href="http://star-www.st-and.ac.uk/~fv/webnotes/chapter7.htm">here</a>.
+                Javascript libraries <a href="http://www.hsluv.org">HSLuv</a>,
                 <a href="https://howlerjs.com">Howler.js</a>,
                 <a href="https://github.com/davidbau/seedrandom">seedrandom.js</a> were used.<br>
             </div>
@@ -160,13 +143,11 @@
 
         <button id="open" onclick="openModal()">?</button>
 
-        <canvas id="cvs"></canvas>
-        <!--<script src="random2.js"></script>-->
         <script src="hsluv-0.0.3.min.js"></script>
         <script src="seedrandom.js"></script>
         <script src="howler.min.js"></script>
-        <script src="colour.js"></script>
-        <script src="crl.js?v=5"></script>
-        <script src="colour_test.js?v=3"></script>
+        <script src="solarPosition.js?v=1"></script>
+        <script src="liveColour.js?v=11"></script>
+        <script src="main.js?v=3"></script>
     </body>
 </html>
