@@ -1,5 +1,7 @@
 var sPos = new SolarPosition(51.509865, 0.01);
-var timezone = sPos.long / 15; // fractional timezone.
+const timezone = sPos.long / 15; // fractional timezone.
+const discreteTimezone = 1; // discrete Timezone for clock display.
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 var currTime = new Date();
 var veil;
 var fallsssImg;
@@ -47,6 +49,8 @@ function onClick() {
 }
 
 async function update() {
+    // colour part
+
     var col = colFunc.calcHSLuv(currTime);
     document.body.style.backgroundColor = hsluv.hsluvToHex(col);
     var fallsssSrcFile = fallsssImg.src.split('/').slice(-1)[0];
@@ -62,6 +66,23 @@ async function update() {
     }
 
     testDate = new Date();
+
+    // clock part
+
+    var clockTime = new Date(testDate.getTime() + 1000*60*60*discreteTimezone);
+    var hourString = clockTime.getUTCHours().toString();
+    hourString = hourString.length == 1 ? "0"+hourString : hourString;
+    var minuteString = clockTime.getUTCMinutes().toString();
+    minuteString = minuteString.length == 1 ? "0"+minuteString : minuteString;
+    var secondString = clockTime.getUTCSeconds().toString();
+    secondString = secondString.length == 1 ? "0"+secondString : secondString;
+
+    var timeString = clockTime.getUTCHours().toString() + " "
+        + monthNames[clockTime.getUTCMonth()] + " "
+        + clockTime.getUTCFullYear() + " "
+        + hourString + ":" + minuteString + ":" + secondString;
+
+    document.getElementById("time_debug").innerHTML = timeString;
 
     setTimeout(update, 1000);
 }
