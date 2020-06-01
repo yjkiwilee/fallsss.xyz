@@ -49,14 +49,15 @@ function onClick() {
 async function update() {
     var col = colFunc.calcHSLuv(currTime);
     document.body.style.backgroundColor = hsluv.hsluvToHex(col);
+    var fallsssSrcFile = fallsssImg.src.split('/').slice(-1)[0];
 
     if(col[2] > 50) { // if the background is light
         veil.style.color = "black";
-        if(fallsssImg.src != "fallsss_small.gif") { fallsssImg.src = "fallsss_small.gif"; }
+        if(fallsssSrcFile != "fallsss_small.gif") { fallsssImg.src = "fallsss_small.gif"; }
         infoOpen.style.color = "black";
     } else { // if the background is dark
         veil.style.color = "white";
-        if(fallsssImg.src != "fallsss_inv_small.gif") { fallsssImg.src = "fallsss_inv_small.gif"; }
+        if(fallsssSrcFile != "fallsss_inv_small.gif") { fallsssImg.src = "fallsss_inv_small.gif"; }
         infoOpen.style.color = "white";
     }
 
