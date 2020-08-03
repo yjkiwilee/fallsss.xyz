@@ -77,7 +77,7 @@ async function update() {
     var secondString = clockTime.getUTCSeconds().toString();
     secondString = secondString.length == 1 ? "0"+secondString : secondString;
 
-    var timeString = clockTime.getUTCDay() + " "
+    var timeString = clockTime.getUTCDate() + " "
         + monthNames[clockTime.getUTCMonth()] + " "
         + clockTime.getUTCFullYear() + " "
         + hourString + ":" + minuteString + ":" + secondString;
