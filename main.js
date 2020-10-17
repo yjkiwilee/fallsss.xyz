@@ -1,6 +1,6 @@
 var sPos = new SolarPosition(51.509865, 0.01);
 const timezone = sPos.long / 15; // fractional timezone.
-const discreteTimezone = 1; // discrete Timezone for clock display.
+const discreteTimezone = 3; // discrete Timezone for clock display.
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 var currTime = new Date();
 var veil;
