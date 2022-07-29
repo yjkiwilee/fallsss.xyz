@@ -56,6 +56,9 @@ html, body {
     border: 1px black solid;
     font-size: 1em;
     font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important;
+    width: 100%;
+    max-width: 15em;
+    height: 4em;
 }
 
 #ms_slowth_img {
