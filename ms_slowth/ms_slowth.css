@@ -1,0 +1,71 @@
+html, body {
+    background-color: white;
+    color: black;
+    font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 13pt;
+    text-align: center;
+    margin: 0;
+    line-height: 1.5;
+}
+
+#main {
+    position: fixed;
+    width: 100%;
+    
+    /* For centering purposes */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wrapper {
+    margin: 30px;
+}
+
+.line { /* <span> for individual lines */
+    display: block;
+    position: relative;
+    margin-bottom: 1em;
+    opacity: 0;
+
+    /* animation: lineanim 3s ease-out forwards; */
+
+    /* Safari and Chrome */
+    /* -webkit-animation: lineanim 3s ease-out forwards; */
+}
+
+@keyframes lineanim {
+    from {top: 1em; opacity: 0;}
+    to {top: 0; opacity: 1;}
+}
+
+@-webkit-keyframes lineanim {
+    from {top: 1em; opacity: 0;}
+    to {top: 0; opacity: 1;}
+}
+
+#name_input {
+    border: none;
+    border-bottom: 1px black solid;
+    width: 100%;
+    max-width: 15em;
+    font-size: 1em;
+}
+
+#comment_field {
+    border: 1px black solid;
+    font-size: 1em;
+}
+
+#ms_slowth_img {
+    position: absolute;
+}
+
+a {
+    color: #174324;
+}
+
+a.whatsthis {
+    color: #999999;
+    font-style: italic;
+}
