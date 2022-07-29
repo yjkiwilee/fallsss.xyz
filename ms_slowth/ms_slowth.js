@@ -11,8 +11,13 @@ var lineTimeInterval = 3000; // Time interval between adjacent lines in millisec
 
 var viewerName = ""; // To be put in by the viewer
 
-var msSlowthAudio = new Howl({
+/*var msSlowthAudio = new Howl({
     src: ["https://cdn.glitch.me/ca53e489-dd2a-4dae-b990-d3a9f5325b87/MS.%20SLOWTH%20X.mp3?v=1658929949232"],
+    html5: true
+});*/
+
+var msSlowthAudio = new Howl({
+    src: ["./test_audio.m4a"],
     html5: true
 });
 
