@@ -50,12 +50,12 @@ html, body {
     width: 100%;
     max-width: 15em;
     font-size: 1em;
-    font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 #comment_field {
     border: 1px black solid;
     font-size: 1em;
+    font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important;
 }
 
 #ms_slowth_img {
