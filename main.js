@@ -10,7 +10,6 @@ var infoPanel;
 var fallsssAudio;
 
 window.onload = function() {
-    console.log("onload");
 
     veil = document.querySelector("#veil");
     fallsssImg = document.querySelector("#fallsssimg");
@@ -19,14 +18,18 @@ window.onload = function() {
 
     fallsssAudio = new Howl({
         src: ["fallsss.mp3"],
+        html5: true,
         loop: true
     });
     
-    fallsssAudio.once('load', function(){
+    /*fallsssAudio.once('load', function(){
         veil.loadingDone = true;
 
         veil.children[0].innerHTML = "click or tap<br>(sound on)";
-    });
+    });*/
+
+    veil.loadingDone = true;
+    veil.children[0].innerHTML = "click or tap<br>(sound on)";
 
     update();
 };
