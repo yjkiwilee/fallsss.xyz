@@ -10,6 +10,8 @@ var infoPanel;
 var fallsssAudio;
 
 window.onload = function() {
+    console.log("onload");
+
     veil = document.querySelector("#veil");
     fallsssImg = document.querySelector("#fallsssimg");
     infoOpen = document.querySelector("#open");

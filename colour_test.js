@@ -1,6 +1,7 @@
 var veilFlag = false;
 
 (function() {
+    console.log("colour_test.js");
 
     async function prepareVisual() {
         var canvas = document.getElementById("cvs");
