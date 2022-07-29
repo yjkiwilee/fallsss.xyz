@@ -151,5 +151,7 @@ $(function() {
 
     
     // Play first scene
-    playScene("#scene_1");
+    //playScene("#scene_1");
+
+    playScene("#scene_4");
 });
