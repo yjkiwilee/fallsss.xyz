@@ -121,6 +121,21 @@ function onAudioComplete() {
     playScene("#scene_4");
 }
 
+function onSendComment() {
+    // Make AJAX request to FormSUBMIT
+
+    $.ajax({
+        url: "https://formsubmit.co/ajax/starwatcherkiwi@gmail.com",
+        method: "POST",
+        dataType: "json",
+        accepts: "application/json",
+        data: {
+            name: viewerName,
+            message: $("#comment_field").val()
+        }
+    });
+}
+
 
 // Main function
 
@@ -144,6 +159,9 @@ $(function() {
 
     // On audio complete
     msSlowthAudio.on('end', onAudioComplete);
+
+    // On comment form submit
+    $("#submit_comment").on("click", function(e) { onSendComment(); });
 
 
     // Set MS SLOWTH X image size according to initial viewport size
