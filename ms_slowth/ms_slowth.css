@@ -46,6 +46,7 @@ html, body {
 
 #name_input {
     border: none;
+    border-radius: 0 !important; 
     border-bottom: 1px black solid;
     width: 100%;
     max-width: 15em;
