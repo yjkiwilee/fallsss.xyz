@@ -8,8 +8,8 @@ var slowthImgMargin = 40; // Margin for placement of Ms Slowth X image in pixels
 
 var slowthImgSizeMultiplier = 0.57;
 var slowthImgSize = 0;
-var slowthImgX = 0;
-var slowthImgY = 0;
+var slowthImgX = 0; // CENTRE X
+var slowthImgY = 0; // CENTRE Y
 
 var prevWinwidth = 0;
 var prevWinheight = 0;
@@ -43,8 +43,8 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 function setMsSlowth() {
     $("#ms_slowth_img").css("width", slowthImgSize); // Image height is scaled automatically
-    $("#ms_slowth_img").css("left", slowthImgX + "px");
-    $("#ms_slowth_img").css("top", slowthImgY + "px");
+    $("#ms_slowth_img").css("left", (slowthImgX - 0.5 * slowthImgSize) + "px");
+    $("#ms_slowth_img").css("top", (slowthImgY - 0.5 * slowthImgSize) + "px");
 }
 
 function initialiseMsSlowth() {
@@ -63,8 +63,8 @@ function initialiseMsSlowth() {
 
     }
 
-    slowthImgX = Math.random() * (currentWinwidth - 2 * slowthImgMargin - slowthImgSize) + slowthImgMargin;
-    slowthImgY = Math.random() * (currentWinheight - 2 * slowthImgMargin - slowthImgSize) + slowthImgMargin;
+    slowthImgX = Math.random() * (currentWinwidth - 2 * slowthImgMargin - slowthImgSize) + slowthImgMargin + 0.5 * slowthImgSize;
+    slowthImgY = Math.random() * (currentWinheight - 2 * slowthImgMargin - slowthImgSize) + slowthImgMargin + 0.5 * slowthImgSize;
 
     setMsSlowth();
 
@@ -87,8 +87,8 @@ function updateMsSlowth() {
 
     }
 
-    slowthImgX = Math.constrain(slowthImgX / prevWinwidth * currentWinwidth, slowthImgMargin, currentWinwidth - slowthImgMargin - slowthImgSize);
-    slowthImgY = Math.constrain(slowthImgY / prevWinheight * currentWinheight, slowthImgMargin, currentWinheight - slowthImgMargin - slowthImgSize);
+    slowthImgX = Math.constrain(slowthImgX / prevWinwidth * currentWinwidth, slowthImgMargin + 0.5 * slowthImgSize, currentWinwidth - slowthImgMargin - 0.5 * slowthImgSize);
+    slowthImgY = Math.constrain(slowthImgY / prevWinheight * currentWinheight, slowthImgMargin + 0.5 * slowthImgSize, currentWinheight - slowthImgMargin - 0.5 * slowthImgSize);
 
     setMsSlowth();
 
