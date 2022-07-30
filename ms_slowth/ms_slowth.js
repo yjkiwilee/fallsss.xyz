@@ -192,8 +192,9 @@ $(function() {
 
     // Set MS SLOWTH X image size according to initial viewport size
     initialiseMsSlowth();
+    showMsSlowth();
 
     
     // Play first scene
-    playScene("#scene_1");
+    //playScene("#scene_1");
 });
