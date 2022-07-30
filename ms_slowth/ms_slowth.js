@@ -4,7 +4,7 @@ window.isMobileDevice = function() {
     return check;
 };
 
-var slowthImgMargin = 70; // Margin for placement of Ms Slowth X image in pixels
+var slowthImgMargin = 40; // Margin for placement of Ms Slowth X image in pixels
 
 var slowthImgSizeMultiplier = 0.57;
 var slowthImgSize = 0;
