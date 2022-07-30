@@ -1,5 +1,6 @@
 var slowthImgMargin = 70; // Margin for placement of Ms Slowth X image in pixels
 
+var slowthImgSizeMultiplier = 0.7;
 var slowthImgSize = 0;
 var slowthImgX = 0;
 var slowthImgY = 0;
@@ -45,7 +46,7 @@ function initialiseMsSlowth() {
     var currentWinheight = $(window).height();
 
     var minDim = Math.min(currentWinwidth, currentWinheight);
-    slowthImgSize = 0.5 * minDim;
+    slowthImgSize = slowthImgSizeMultiplier * minDim;
     slowthImgX = Math.random() * (currentWinwidth - 2 * slowthImgMargin - slowthImgSize) + slowthImgMargin;
     slowthImgY = Math.random() * (currentWinheight - 2 * slowthImgMargin - slowthImgSize) + slowthImgMargin;
 
@@ -60,7 +61,7 @@ function updateMsSlowth() {
     var currentWinheight = $(window).height();
 
     var minDim = Math.min(currentWinwidth, currentWinheight);
-    slowthImgSize = 0.5 * minDim;
+    slowthImgSize = slowthImgSizeMultiplier * minDim;
     slowthImgX = Math.constrain(slowthImgX / prevWinwidth * currentWinwidth, slowthImgMargin, currentWinwidth - slowthImgMargin - slowthImgSize);
     slowthImgY = Math.constrain(slowthImgY / prevWinheight * currentWinheight, slowthImgMargin, currentWinheight - slowthImgMargin - slowthImgSize);
 
