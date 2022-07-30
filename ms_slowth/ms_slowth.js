@@ -1,6 +1,6 @@
 var slowthImgMargin = 70; // Margin for placement of Ms Slowth X image in pixels
 
-var slowthImgSizeMultiplier = 0.55;
+var slowthImgSizeMultiplier = 0.57;
 var slowthImgSize = 0;
 var slowthImgX = 0;
 var slowthImgY = 0;
