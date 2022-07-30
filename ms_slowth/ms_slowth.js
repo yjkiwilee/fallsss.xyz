@@ -59,7 +59,7 @@ function initialiseMsSlowth() {
 
     } else {
 
-        slowthImgSize = min(458, minDim - 2 * slowthImgMargin); // Original dimensions or that allowed by the page if constrained
+        slowthImgSize = Math.min(458, minDim - 2 * slowthImgMargin); // Original dimensions or that allowed by the page if constrained
 
     }
 
@@ -83,10 +83,10 @@ function updateMsSlowth() {
 
     } else {
 
-        slowthImgSize = min(458, minDim - 2 * slowthImgMargin); // Original dimensions or that allowed by the page if constrained
+        slowthImgSize = Math.min(458, minDim - 2 * slowthImgMargin); // Original dimensions or that allowed by the page if constrained
 
     }
-    
+
     slowthImgX = Math.constrain(slowthImgX / prevWinwidth * currentWinwidth, slowthImgMargin, currentWinwidth - slowthImgMargin - slowthImgSize);
     slowthImgY = Math.constrain(slowthImgY / prevWinheight * currentWinheight, slowthImgMargin, currentWinheight - slowthImgMargin - slowthImgSize);
 
