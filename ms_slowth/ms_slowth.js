@@ -151,7 +151,7 @@ function onSendComment() {
     // Make AJAX request to FormSUBMIT
 
     $.ajax({
-        url: "https://formsubmit.co/ajax/6444b614ab35d8809af2e436245866e1",
+        url: "https://formsubmit.co/msslowthx@gmail.com",
         method: "POST",
         dataType: "json",
         accepts: "application/json",
