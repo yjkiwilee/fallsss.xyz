@@ -147,18 +147,24 @@ function onAudioComplete() {
     playScene("#scene_4");
 }
 
-function onSendComment() {
+async function onSendComment() {
+    $('#submit_comment').html('sending...')
+
     // Make AJAX request to FormSUBMIT
 
+    const data = {
+        name: viewerName,
+        message: $("#comment_field").val()
+    };
+
+    console.log(data);
+
     $.ajax({
-        url: "https://formsubmit.co/msslowthx@gmail.com",
+        url: "https://ms-slowth-x-backend.leekiwi.repl.co/sendcomment",
         method: "POST",
-        dataType: "json",
-        accepts: "application/json",
-        data: {
-            name: viewerName,
-            message: $("#comment_field").val()
-        }
+        data: data,
+        success: (data) => { window.location.replace("https://www.msslowth.postponed-until-further-notice.com/x/"); },
+        error: (err) => { console.log(err); }
     });
 }
 
