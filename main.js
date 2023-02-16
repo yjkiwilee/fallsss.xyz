@@ -56,6 +56,7 @@ function onClick() {
 async function update() {
     // colour part
 
+    currTime = new Date();
     var col = colFunc.calcHSLuv(currTime);
     document.body.style.backgroundColor = hsluv.hsluvToHex(col);
     var fallsssSrcFile = fallsssImg.src.split('/').slice(-1)[0];
