@@ -39,7 +39,7 @@ class SolarPosition {
         // mean anomaly of the Sun in radians
         this.g = ((357.528 + 0.9856003 * this.n) % 360) / 360 * Math.TWO_PI;
         // mean solar time
-        this.Js = this.n - this.long / 360;
+        this.Js = Math.floor(this.n) - this.long / 360;
         // the ecliptic longitude of the Sun in radians
         this.lambda = ((this.L + 1.915 * Math.sin(this.g) + 0.020 * Math.sin(2*this.g)) % 360) / 360 * Math.TWO_PI;
         // the obliquity of the ecliptic in radians
