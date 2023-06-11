@@ -113,7 +113,7 @@ class SolarPosition {
         return this.apparentDiam;
     }
 
-    getSuntimes(date) {
+    getSunTimes(date) {
         if(this.prev.suntimesdate === undefined && date === undefined) { return undefined; } 
         if(this.prev.suntimesdate == date || date === undefined) { return { sunrise: this.sunrise, sunset: this.sunset }; }
 
