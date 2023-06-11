@@ -119,7 +119,7 @@ class SolarPosition {
 
         this.calculate(date);
 
-        this.suntimeAngle = Math.acos((Math.sin(-0.83 / 360 * Math.TWO_PI) - Math.sin(this.lat) * Math.sin(this.delta)) / (Math.cos(this.lat) * Math.cos(this.delta)));
+        this.suntimeAngle = Math.acos((Math.sin(-0.83 / 360 * Math.TWO_PI) - Math.sin(this.lat / 360) * Math.sin(this.delta)) / (Math.cos(this.lat / 360) * Math.cos(this.delta)));
         this.sunrise = this.sTransit - this.suntimeAngle / Math.TWO_PI;
         this.sunset = this.sTransit + this.suntimeAngle / Math.TWO_PI;
 
