@@ -18,6 +18,33 @@ Date.prototype.UTCInDegrees = function() {
     return (this.getUTCHours() + this.getUTCMinutes()/60 + this.getUTCSeconds()/3600 + this.getUTCMilliseconds()/3600000) * 15;
 }
 
+Date.prototype.getTimeDateString = function() {
+    var hourString = this.getUTCHours().toString();
+    hourString = hourString.length == 1 ? "0"+hourString : hourString;
+    var minuteString = this.getUTCMinutes().toString();
+    minuteString = minuteString.length == 1 ? "0"+minuteString : minuteString;
+    var secondString = this.getUTCSeconds().toString();
+    secondString = secondString.length == 1 ? "0"+secondString : secondString;
+
+    var timeDateString = this.getUTCDate() + " "
+        + monthNames[this.getUTCMonth()] + " "
+        + clockTime.getUTCFullYear() + " "
+        + hourString + ":" + minuteString + ":" + secondString;
+    
+    return timeDateString;
+}
+
+Date.prototype.getTimeString = function() {
+    var hourString = this.getUTCHours().toString();
+    hourString = hourString.length == 1 ? "0"+hourString : hourString;
+    var minuteString = this.getUTCMinutes().toString();
+    minuteString = minuteString.length == 1 ? "0"+minuteString : minuteString;
+
+    var timeString = hourString + ":" + minuteString;
+    
+    return timeString;
+}
+
 // https://en.wikipedia.org/wiki/Position_of_the_Sun
 // https://en.wikipedia.org/wiki/Sunrise_equation
 // http://star-www.st-and.ac.uk/~fv/webnotes/chapter7.htm

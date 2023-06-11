@@ -76,19 +76,14 @@ async function update() {
     // clock part
 
     var clockTime = new Date(testDate.getTime() + 1000*60*60*discreteTimezone);
-    var hourString = clockTime.getUTCHours().toString();
-    hourString = hourString.length == 1 ? "0"+hourString : hourString;
-    var minuteString = clockTime.getUTCMinutes().toString();
-    minuteString = minuteString.length == 1 ? "0"+minuteString : minuteString;
-    var secondString = clockTime.getUTCSeconds().toString();
-    secondString = secondString.length == 1 ? "0"+secondString : secondString;
+    var timeDateString = clockTime.getTimeDateString();
+    var suntimes = colFunc.getSunTimes(currTime);
+    var sunriseString = suntimes.sunrise.getTimeString();
+    var sunsetString = suntimes.sunset.getTimeString();
 
-    var timeString = clockTime.getUTCDate() + " "
-        + monthNames[clockTime.getUTCMonth()] + " "
-        + clockTime.getUTCFullYear() + " "
-        + hourString + ":" + minuteString + ":" + secondString;
-
-    document.getElementById("time_debug").innerHTML = timeString;
+    document.getElementById("time_debug").innerHTML = timeDateString;
+    document.getElementById("sunrise_time").innerHTML = sunriseString;
+    document.getElementById("sunset_time").innerHTML = sunsetString;
 
     setTimeout(update, 1000);
 }
