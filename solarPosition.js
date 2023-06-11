@@ -43,7 +43,7 @@ class SolarPosition {
         // the obliquity of the ecliptic in radians
         this.epsilon = (23.439 - 0.0000004 * this.n) / 360 * Math.TWO_PI;
         // the solar transit
-        this.sTransit = 2451545.0 + this.n + 0.0053 * Math.sin(this.g) - 0.0069 * Math.sin(2 * this.lambda)
+        this.sTransit = 2451545.0 + Math.ceil(this.n) + 0.0053 * Math.sin(this.g) - 0.0069 * Math.sin(2 * this.lambda)
 
         // converting to the Sun's equatorial coordinates
 
