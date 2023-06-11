@@ -43,6 +43,19 @@ colFunc.calcLightness = function(date) {
     }
 }
 
+colFunc.getSunTimes = function(date) {
+    var suntimes = sPos.getSunTimes(date);
+    var sunriseJulian = suntimes.sunriseJulian;
+    var sunsetJulian = suntimes.sunsetJulian;
+    var sunrise = date.dateFromJulian(sunriseJulian);
+    var sunset = date.dateFromJulian(sunsetJulian);
+
+    return {
+        sunrise: sunrise,
+        sunset: sunset
+    };
+}
+
 // receives a Date object and returns the appropriate hue and saturation pair. ([0~360, 0~100])
 // the hue and saturation will change rapidly when the Sun is at its lowest point on a day.
 // many thanks to the person who made this brilliant illustration: http://notesfromnoosphere.blogspot.com/2012/05/simple-geometry-of-sun-paths.html

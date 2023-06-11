@@ -6,11 +6,16 @@ Date.prototype.getJulian = function() {
     return (this.getTime() / 86400000) - (this.getTimezoneOffset() / 1440) + 2440587.5;
 }
 
+Date.prototype.dateFromJulian = function(julian) {
+    return new Date(julian - 2440587.5 + (this.getTimezoneOffset() / 1440) * 86400000);
+}
+
 Date.prototype.UTCInDegrees = function() {
     return (this.getUTCHours() + this.getUTCMinutes()/60 + this.getUTCSeconds()/3600 + this.getUTCMilliseconds()/3600000) * 15;
 }
 
 // https://en.wikipedia.org/wiki/Position_of_the_Sun
+// https://en.wikipedia.org/wiki/Sunrise_equation
 // http://star-www.st-and.ac.uk/~fv/webnotes/chapter7.htm
 // calculation does not account for atmospheric refraction... yet.
 
@@ -33,10 +38,14 @@ class SolarPosition {
         this.L = (280.46 + 0.9856474 * this.n) % 360;
         // mean anomaly of the Sun in radians
         this.g = ((357.528 + 0.9856003 * this.n) % 360) / 360 * Math.TWO_PI;
+        // mean solar time
+        this.Js = this.n - this.long / 360;
         // the ecliptic longitude of the Sun in radians
         this.lambda = ((this.L + 1.915 * Math.sin(this.g) + 0.020 * Math.sin(2*this.g)) % 360) / 360 * Math.TWO_PI;
         // the obliquity of the ecliptic in radians
         this.epsilon = (23.439 - 0.0000004 * this.n) / 360 * Math.TWO_PI;
+        // the solar transit
+        this.sTransit = 2451545.0 + this.Js + 0.0053 * Math.sin(this.g) - 0.0069 * Math.sin(2 * this.lambda)
 
         // converting to the Sun's equatorial coordinates
 
@@ -102,5 +111,21 @@ class SolarPosition {
         this.prev.appdiamdate = date;
 
         return this.apparentDiam;
+    }
+
+    getSuntimes(date) {
+        if(this.prev.suntimesdate === undefined && date === undefined) { return undefined; } 
+        if(this.prev.suntimesdate == date || date === undefined) { return { sunrise: this.sunrise, sunset: this.sunset }; }
+
+        this.calculate(date);
+
+        this.suntimeAngle = Math.acos((Math.sin(-0.83 / 360 * Math.TWO_PI) - Math.sin(this.lat) * Math.sin(this.delta)) / (Math.cos(this.lat) * Math.cos(this.delta)));
+        this.sunrise = this.sTransit - this.suntimeAngle / Math.TWO_PI;
+        this.sunset = this.sTransit + this.suntimeAngle / Math.TWO_PI;
+
+        return {
+            sunriseJulian : this.sunrise,
+            sunsetJulian : this.sunset
+        };
     }
 }
