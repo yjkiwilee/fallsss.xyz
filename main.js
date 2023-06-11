@@ -78,8 +78,8 @@ async function update() {
     var clockTime = new Date(testDate.getTime() + 1000*60*60*discreteTimezone);
     var timeDateString = clockTime.getTimeDateString();
     var suntimes = colFunc.getSunTimes(currTime);
-    var sunriseString = suntimes.sunrise.getTimeString();
-    var sunsetString = suntimes.sunset.getTimeString();
+    var sunriseString = new Date(suntimes.sunrise.getTime() + 1000*60*60*discreteTimezone).getTimeString();
+    var sunsetString = new Date(suntimes.sunset.getTime() + 1000*60*60*discreteTimezone).getTimeString();
 
     document.getElementById("time_debug").innerHTML = timeDateString;
     document.getElementById("sunrise_time").innerHTML = sunriseString;
