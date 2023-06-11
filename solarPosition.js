@@ -45,9 +45,9 @@ class SolarPosition {
         // mean longitude of the Sun in degrees
         this.L = (280.46 + 0.9856474 * this.n) % 360;
         // mean anomaly of the Sun in radians
-        this.g = ((357.528 + 0.9856003 * this.n) % 360) / 360 * Math.TWO_PI;
+        this.g = ((357.5291 + 0.9856003 * this.n) % 360) / 360 * Math.TWO_PI;
         // the ecliptic longitude of the Sun in radians
-        this.lambda = ((this.L + 1.915 * Math.sin(this.g) + 0.020 * Math.sin(2*this.g)) % 360) / 360 * Math.TWO_PI;
+        this.lambda = ((this.L + 1.915 * Math.sin(this.g) + 0.020 * Math.sin(2*this.g) + 0.0003 * Math.sin(3*this.g)) % 360) / 360 * Math.TWO_PI;
         // the obliquity of the ecliptic in radians
         this.epsilon = (23.439 - 0.0000004 * this.n) / 360 * Math.TWO_PI;
         // the solar transit
@@ -125,7 +125,7 @@ class SolarPosition {
 
         this.calculate(date);
 
-        this.suntimeAngle = Math.acos((Math.sin(-0.83 / 360 * Math.TWO_PI) - Math.sin(this.lat / 360) * Math.sin(this.delta)) / (Math.cos(this.lat / 360) * Math.cos(this.delta)));
+        this.suntimeAngle = Math.acos((Math.sin(-0.83 / 360 * Math.TWO_PI) - Math.sin(this.lat / 360 * Math.TWO_PI) * Math.sin(this.delta)) / (Math.cos(this.lat / 360 * Math.TWO_PI) * Math.cos(this.delta)));
         this.sunrise = this.sTransit - this.suntimeAngle / Math.TWO_PI;
         this.sunset = this.sTransit + this.suntimeAngle / Math.TWO_PI;
 
