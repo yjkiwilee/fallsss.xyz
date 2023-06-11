@@ -6,6 +6,10 @@ Date.prototype.getJulian = function() {
     return (this.getTime() / 86400000) - (this.getTimezoneOffset() / 1440) + 2440587.5;
 }
 
+Date.prototype.getJulianWithoutTimezone = function() { 
+    return (this.getTime() / 86400000) + 2440587.5;
+}
+
 Date.prototype.dateFromJulian = function(julian) {
     return new Date((julian - 2440587.5 + (this.getTimezoneOffset() / 1440)) * 86400000);
 }
@@ -34,6 +38,10 @@ class SolarPosition {
 
         // number of days since Greenwich noon Terrestrial Time 1 January 2000
         this.n = date.getJulian() - 2451545 + 0.0008;
+        // alternative for sunrise/set time calculation
+        this.n2 = Math.ceil(date.getJulianWithoutTimezone() - 2451545 + 0.0008);
+        // mean solar time
+        this.Js = this.n2 - this.long / 360;
         // mean longitude of the Sun in degrees
         this.L = (280.46 + 0.9856474 * this.n) % 360;
         // mean anomaly of the Sun in radians
@@ -43,7 +51,7 @@ class SolarPosition {
         // the obliquity of the ecliptic in radians
         this.epsilon = (23.439 - 0.0000004 * this.n) / 360 * Math.TWO_PI;
         // the solar transit
-        this.sTransit = 2451545.0 + Math.ceil(this.n) + 0.0053 * Math.sin(this.g) - 0.0069 * Math.sin(2 * this.lambda)
+        this.sTransit = 2451545.0 + this.Js + 0.0053 * Math.sin(this.g) - 0.0069 * Math.sin(2 * this.lambda);
 
         // converting to the Sun's equatorial coordinates
 
