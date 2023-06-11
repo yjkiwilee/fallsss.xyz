@@ -11,7 +11,7 @@ Date.prototype.getJulianWithoutTimezone = function() {
 }
 
 Date.prototype.dateFromJulian = function(julian) {
-    return new Date((julian - 2440587.5 + (this.getTimezoneOffset() / 1440)) * 86400000);
+    return new Date((julian - 2440587.5) * 86400000);
 }
 
 Date.prototype.UTCInDegrees = function() {
