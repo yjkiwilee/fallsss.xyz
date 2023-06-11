@@ -33,19 +33,17 @@ class SolarPosition {
         // calculating the Sun's ecliptic coordinates
 
         // number of days since Greenwich noon Terrestrial Time 1 January 2000
-        this.n = date.getJulian() - 2451545;
+        this.n = date.getJulian() - 2451545 + 0.0008;
         // mean longitude of the Sun in degrees
         this.L = (280.46 + 0.9856474 * this.n) % 360;
         // mean anomaly of the Sun in radians
         this.g = ((357.528 + 0.9856003 * this.n) % 360) / 360 * Math.TWO_PI;
-        // mean solar time
-        this.Js = Math.floor(this.n) - this.long / 360;
         // the ecliptic longitude of the Sun in radians
         this.lambda = ((this.L + 1.915 * Math.sin(this.g) + 0.020 * Math.sin(2*this.g)) % 360) / 360 * Math.TWO_PI;
         // the obliquity of the ecliptic in radians
         this.epsilon = (23.439 - 0.0000004 * this.n) / 360 * Math.TWO_PI;
         // the solar transit
-        this.sTransit = 2451545.0 + this.Js + 0.0053 * Math.sin(this.g) - 0.0069 * Math.sin(2 * this.lambda)
+        this.sTransit = 2451545.0 + this.n + 0.0053 * Math.sin(this.g) - 0.0069 * Math.sin(2 * this.lambda)
 
         // converting to the Sun's equatorial coordinates
 
