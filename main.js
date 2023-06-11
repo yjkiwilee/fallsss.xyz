@@ -71,8 +71,6 @@ async function update() {
         infoOpen.style.color = "white";
     }
 
-    console.log(colFunc.getSunTimes(currTime));
-
     testDate = new Date();
 
     // clock part
