@@ -28,7 +28,7 @@ Date.prototype.getTimeDateString = function() {
 
     var timeDateString = this.getUTCDate() + " "
         + monthNames[this.getUTCMonth()] + " "
-        + clockTime.getUTCFullYear() + " "
+        + this.getUTCFullYear() + " "
         + hourString + ":" + minuteString + ":" + secondString;
     
     return timeDateString;
